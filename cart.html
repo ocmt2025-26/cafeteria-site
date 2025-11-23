@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>سلة الطلبات</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body onload="loadCart()">
+
+<header>
+  <h2>🛒 سلة الطلبات</h2>
+</header>
+
+<div class="container">
+  <div id="cart-items"></div>
+
+  <h3>المجموع: <span id="total">0</span> ريال</h3>
+
+  <h4>طريقة الدفع</h4>
+  <label><input type="radio" name="pay"> الدفع عند الاستلام 💵</label><br>
+  <label><input type="radio" name="pay"> الدفع الإلكتروني 💳</label><br><br>
+
+  <button onclick="confirmOrder()">✅ تأكيد الطلب</button>
+</div>
+
+</body>
+</html>
