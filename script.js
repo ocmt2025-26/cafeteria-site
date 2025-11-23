@@ -1,4 +1,4 @@
-// بيانات الوجبات
+// meals and drinks details
 const foods = JSON.parse(localStorage.getItem("foods")) || [
   { id: 1, name: "Beef Burgrt", price: 1.5, type: "meal" },
   { id: 2, name: "Chicken Burger", price: 1.5, type: "meal" },
@@ -16,12 +16,12 @@ localStorage.setItem("foods", JSON.stringify(foods));
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// إضافة للسلة
+// add to cart
 function addToCart(id) {
   let item = foods.find(f => f.id === id);
   cart.push(item);
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("تمت الإضافة للسلة");
+  alert("Added to cart");
 }
 
 function loadCart() {
@@ -34,8 +34,8 @@ function loadCart() {
     sum += item.price;
     list.innerHTML += `
       <div class="card">
-        ${item.name} - ${item.price} ريال
-        <button onclick="removeItem(${index})">❌ حذف</button>
+        ${item.name} - ${item.price} O.R
+        <button onclick="removeItem(${index})">❌drop</button>
       </div>
     `;
   });
@@ -51,7 +51,7 @@ function removeItem(index) {
 function confirmOrder() {
   localStorage.setItem("orders", JSON.stringify(cart));
   localStorage.removeItem("cart");
-  alert("✅ تم إرسال طلبك إلى الكافتيريا، استلمه بعد 10 دقائق");
+  alert("✅ your order has been sent, please pick up in 10 minutes");
   window.location.href = "index.html";
 }
 
@@ -63,11 +63,11 @@ function loadAdminOrders() {
   orders.forEach(item => {
     list.innerHTML += `
       <div class="card">
-        ${item.name} - ${item.price} ريال
+        ${item.name} - ${item.price} O.R
         <select>
-          <option>قيد التحضير</option>
-          <option>جاهز</option>
-          <option>تم الاستلام</option>
+          <option>under preparation</option>
+          <option>ready</option>
+          <option> received, thank you</option>
         </select>
       </div>
     `;
@@ -76,10 +76,10 @@ function loadAdminOrders() {
 
 const password = "uni2025";
 function loginAdmin() {
-  const input = prompt("ادخل كلمة المرور:");
+  const input = prompt("enter the password:");
   if(input === password){
     window.location.href = "admin.html";
   } else {
-    alert("كلمة المرور خاطئة");
+    alert("incorrect password");
   }
 }
