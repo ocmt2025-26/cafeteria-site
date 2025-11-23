@@ -1,49 +1,114 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>COLLEGE CAFETERIA</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+<meta charset="UTF-8">
+<title>sign account</title>
+<style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      direction: rtl;
+
+      text-align: center;
+
+      background-color: #f0f0f0;
+
+    }
+
+    .container {
+
+      background: white;
+
+      margin: 50px auto;
+
+      padding: 20px;
+
+      width: 300px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 0 10px #ccc;
+
+    }
+
+    input, button {
+
+      width: 90%;
+
+      padding: 10px;
+
+      margin: 5px 0;
+
+    }
+
+    button {
+
+      background-color: #28a745;
+
+      color: white;
+
+      border: none;
+
+      cursor: pointer;
+
+    }
+
+    button:hover {
+
+      background-color: #218838;
+
+    }
+
+    .admin-btn {
+
+      background-color: #007bff;
+
+    }
+</style>
 </head>
 <body>
-
-<header>
-  <h2>🍔 COLLEGE CAFETERIA</h2>
-  <nav>
-    <a href="menu.html">MENU</a>
-    <a href="cart.html">ORDER</a>
-    <a href="profile.html">ACCOUNT</a>
-    <button onclick="loginAdmin()">ADMIN PANEL ⚙️</button>
-    <script>
-      const password = "uni2025":
-      function LoginAdmin() {
-        const input = prompt("password:");
-        if(input===password){
-          window.location.href = "admin.html";
-        } else {
-          alert("incorrect password"):
-        }
-      }
-    </script>
-  </nav>
-</header>
-
 <div class="container">
-  <img src="https://via.placeholder.com/600x300" width="100%">
-  <h1>HELLO</h1>
-  <button onclick="window.location.href='menu.html'">🟢START ORDER NOW</button>
-
-  <h3>MOST POPULAR MEALS</h3>
-  <div class="card"> Beef Burger🍔</div>
-  <div class="card"> Chicken shawarma 🥪</div>
-  <div class="card">Tea ☕</div>
-  <div class="card">Dark coffee ☕</div>
+<h2>sign form</h2>
+<input type="text" id="studentName" placeholder="enter the name">
+<input type="text" id="studentId" placeholder="college id">
+<button onclick="saveStudent()">register ✅</button>
+<br><br>
+<button class="admin-btn" onclick="goToAdmin()">Admin panel</button>
 </div>
+<script>
 
-<footer>
-  for contant: cafeteria@ocmt.edu.om |term of us
-</footer>
+    function saveStudent() {
 
+      let name = document.getElementById("studentName").value;
+
+      let id = document.getElementById("studentId").value;
+
+      if (name === "" || id === "") {
+
+        alert("name and college id");
+
+        return;
+
+      }
+
+      //save the details
+
+      localStorage.setItem("studentName", name);
+
+      localStorage.setItem("studentId", id);
+
+      alert("DONE ✅");
+
+    }
+
+    function goToAdmin() {
+
+      window.location.href = "admin.html";
+
+    }
+</script>
 </body>
 </html>
+ 
