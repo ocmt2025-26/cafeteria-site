@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>ACCOUNT</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>user profile</title>
+<style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      direction: rtl;
+
+      text-align: center;
+
+      background-color: #f4f4f4;
+
+    }
+
+    .container {
+
+      background-color: #fff;
+
+      width: 80%;
+
+      max-width: 400px;
+
+      margin: 50px auto;
+
+      padding: 20px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    }
+
+    button {
+
+      padding: 10px 20px;
+
+      background-color: #28a745;
+
+      color: white;
+
+      border: none;
+
+      border-radius: 5px;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+    }
+</style>
 </head>
-<body>
-
-<header>
-  <h2>👩‍🎓 STUDENT ACCOUNT</h2>
-  <nav>
-    <a href="index.html"Home</a>
-    <a href="menu.html"Menu</a>
-    <a href="cart.html"Cart</a> 
-  </nav>
-</header>
-
+<body onload="loadProfile()">
 <div class="container">
-  <div class="card">NAME</div>
-  <div class="card">ID NUMBER</div>
-  <h3>order log</h3>
-  <div id="orders"></div>
-  <button onclick= "logout()">LOG OUT</button>
-</div>
-<script>
-function loadOrders() {
- const orders = JSON.parse(localStorage.getItem("orders")) || [];
- const list = document.getElementById("orders");
- list.innerHTML = "";
- if (orders.length === 0) {
-   list.innerHTML = "<p>No previous request</p>";
-   return;
- }
- orders.forEach(item => {
-   list.innerHTML += `
-<div class="card">
-       ${item.name} - ${item.price} O.R
-</div>
-   `;
- });
-}
-function logout() {
- alert("LOGGED OUT");
- window.location.href = "index.html";
-}
-loadOrders();
-</script>
+<h2>USER PROFILE 👩‍🎓</h2>
+<!-- here will show the details -->
+<div id="profileInfo">
 
+      LOADING...
+</div>
+<br>
+<button onclick="window.location.href='index.html'">BACK TO HOME </button>
+</div>
+<!-- LINK THE FILE -->
+<script src="script.js"></script>
 </body>
 </html>
+ 
